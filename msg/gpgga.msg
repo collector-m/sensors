@@ -1,0 +1,15 @@
+Header header
+string gga_1
+string utc_time_2
+string lat_3
+float32 latdir_4
+string lon_5
+float32 londir_6
+string QF_7
+float32 satNo_8
+float32 hdop_9
+string alt_10
+float32 units_11
+string age_14
+string mode_15
+string initdata_0

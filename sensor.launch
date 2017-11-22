@@ -1,0 +1,28 @@
+<launch>
+
+<!-->  RTK传感器         topic： gprmc         <-->
+
+<node  name="gps" pkg="sensors" type="gps"  >
+<param name="gps_port" value="/dev/ttyUSB1" />
+<param name="gps_baud" value="115200" />
+</node>
+
+<!-->    轮子编码器            topic： encoders           <-->
+
+ <node  name="wheel" pkg="sensors" type="encoder"  >
+ <param name="port" value="/dev/ttyUSB2" />
+ <param name="baud" value="115200" />
+ <param name="diameter" value="0.57" />
+ </node>
+
+
+
+<!-->    黄色的IMU模块  topic： std_msg::imu               <-->
+<node  name="IMU" pkg="sensors" type="nav440"  >
+<param name="port" value="/dev/ttyUSB0" />
+<param name="baud" value="38400" />
+</node>
+
+ <node pkg="rosbag" type="record" name="record" output="screen" args="-O /home/sti/20170704.bag /IMU/nav440 /gps/gps /wheel/encoders /fullscan"/> 
+
+</launch>
